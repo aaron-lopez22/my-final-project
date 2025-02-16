@@ -127,8 +127,28 @@ input::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Style Select Dropdown */
 select {
     cursor: pointer;
+    background: white; /* Ensure dropdown has a white background */
+    color: #00274D; /* Dark text for readability */
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+/* Style dropdown options */
+select option {
+    background: white;
+    color: black;
+    font-size: 16px;
+}
+
+/* Improve dropdown on hover */
+select:hover {
+    border-color: #FF6B35;
 }
 
 /* Modern Gradient Buttons */

@@ -1,5 +1,8 @@
+import {  updateBudget, populateCurrencyDropdown } from "./ui.mjs";
 import { attachEventListeners } from "./events.mjs";
 
 document.addEventListener("DOMContentLoaded", () => {
-    attachEventListeners();
+    attachEventListeners(); // Attach button event listeners
+  
+    populateCurrencyDropdown(); // Populate currency dropdown
 });
