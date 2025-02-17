@@ -204,3 +204,39 @@ footer {
     }
 }
 
+/* =======================
+   TRAVEL NEWS SECTION
+========================== */
+.news-article {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8f8f8;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.news-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-content a {
+    font-size: 16px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-content a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

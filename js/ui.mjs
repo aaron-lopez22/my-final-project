@@ -58,6 +58,9 @@ export async function updateBudget() {
 /**
  * Display travel news based on user input
  */
+/**
+ * Display travel news based on user input
+ */
 export async function displayTravelNews() {
     const destination = document.getElementById("destination").value.trim();
     const newsContainer = document.getElementById("news");
@@ -75,7 +78,15 @@ export async function displayTravelNews() {
         return;
     }
 
+    // Display news articles with images
     newsContainer.innerHTML = articles
-        .map(article => `<p><a href="${article.url}" target="_blank">${article.title}</a></p>`)
+        .map(article => `
+            <div class="news-article">
+                <img src="${article.urlToImage || 'assets/images/news-placeholder.jpg'}" alt="News Image" class="news-image">
+                <div class="news-content">
+                    <p><a href="${article.url}" target="_blank">${article.title}</a></p>
+                </div>
+            </div>
+        `)
         .join("");
 }
