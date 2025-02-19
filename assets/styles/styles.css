@@ -419,3 +419,28 @@ button:hover {
         max-width: 100%;
     }
 }
+.hidden {
+    display: none;
+}
+#favorite-budget-card {
+    display: none; /* Default: hidden */
+}
+
+#favorite-budget-card.show {
+    display: block !important; /* Force visibility when .show is added */
+}
+
+#pin-favorite {
+    background: gold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#pin-favorite:hover {
+    background: darkgoldenrod;
+}

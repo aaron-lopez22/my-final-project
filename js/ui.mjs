@@ -98,3 +98,55 @@ export async function displayTravelNews() {
         setTimeout(() => article.classList.add("show"), index * 200);
     });
 }
+
+export function pinFavoriteBudget() {
+    const convertedAmountElement = document.getElementById("converted-amount");
+    const convertedAmountText = convertedAmountElement ? convertedAmountElement.innerText : null;
+
+    if (!convertedAmountText || convertedAmountText === "-") {
+        alert("Convert a budget first before pinning.");
+        return;
+    }
+
+    // Save pinned budget to localStorage
+    localStorage.setItem("pinnedBudget", convertedAmountText);
+
+    // Update the pinned budget display
+    displayPinnedBudget();
+}
+export function displayPinnedBudget() {
+    console.log("displayPinnedBudget() function is running...");
+
+    const pinnedAmount = localStorage.getItem("pinnedBudget");
+    console.log("Retrieved pinnedAmount from localStorage:", pinnedAmount);
+
+    const pinnedElement = document.getElementById("pinned-amount");
+    const pinnedCard = document.getElementById("favorite-budget-card");
+
+    if (!pinnedElement || !pinnedCard) {
+        console.warn("Pinned budget elements not found in the DOM. Skipping display.");
+        return;
+    }
+
+    if (pinnedAmount) {
+        pinnedElement.innerText = pinnedAmount;
+        pinnedCard.classList.add("show");  // ✅ Use .show class to ensure it's visible
+        pinnedCard.classList.remove("hidden"); // ✅ Remove hidden class if it exists
+        pinnedCard.style.display = "block";  // ✅ Extra fallback in case CSS is blocking it
+        console.log("Pinned budget displayed successfully.");
+    } else {
+        pinnedCard.classList.remove("show");  // ✅ Remove show class if no pinned budget
+        pinnedCard.classList.add("hidden");   // ✅ Add hidden class to hide it
+        pinnedCard.style.display = "none";
+        console.log("No pinned budget found, hiding the card.");
+    }
+}
+
+
+
+
+
+
+
+
+

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="assets/styles/styles.css">
 </head>
 <body>
+
     <header id="header"></header>
 
     <main>
@@ -25,12 +26,20 @@
             </div>
 
             <button id="convert-budget">Convert Budget</button>
+            <button id="pin-favorite">⭐ Pin Favorite</button>
+            <p id="favorite-status"></p>
 
             <section id="budget-card" class="budget-card">
                 <div class="budget-icon">💰</div>
                 <h3>Converted Budget</h3>
                 <p id="converted-amount">-</p>
             </section>
+            <section id="favorite-budget-card" class="budget-card hidden">
+                <div class="budget-icon">📌</div>
+                <h3>Pinned Budget</h3>
+                <p id="pinned-amount">No pinned budget yet</p>
+            </section>
+            
         </section>
     </main>
 
