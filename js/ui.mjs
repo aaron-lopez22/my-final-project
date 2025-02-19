@@ -84,7 +84,7 @@ export async function displayTravelNews() {
         return;
     }
 
-    newsContainer.innerHTML = `<div class="loading-animation"></div>`;
+    newsContainer.innerHTML = "<div class=\"loading-animation\"></div>";
 
     const articles = await fetchTravelNews(destination);
     if (articles.length === 0) {
