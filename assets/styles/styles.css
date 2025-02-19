@@ -312,3 +312,110 @@ footer {
     font-size: 40px;
     margin-bottom: 10px;
 }
+/* =======================
+   SHARED STYLES FOR BUDGET PAGE
+========================== */
+
+/* Ensure consistent page layout */
+main {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure Budget Section matches Home Page */
+#budget-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: #004A8D; /* Rich blue for contrast */
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Inputs and Select */
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid white;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Ensure button styles match */
+button {
+    background: linear-gradient(90deg, #FF6B35, #FF8C42);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #FF5733, #FF8C42);
+}
+
+/* =======================
+   BUDGET DISPLAY CARD
+========================== */
+.budget-card {
+    background: #004A8D; /* Deep blue background */
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.budget-card.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Currency amount styling */
+#converted-amount {
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Budget icon */
+.budget-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* =======================
+   RESPONSIVE STYLING
+========================== */
+@media (max-width: 600px) {
+    main {
+        width: 95%;
+    }
+
+    .budget-card {
+        max-width: 100%;
+    }
+}

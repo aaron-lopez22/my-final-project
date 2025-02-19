@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Converter - Smart Trip Planner</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+<body>
+    <header id="header"></header>
+
+    <main>
+        <section id="budget-section">
+            <h2>Convert Your Budget</h2>
+            <div class="form-group">
+                <label for="budget">Budget (USD):</label>
+                <input type="number" id="budget" placeholder="Enter your budget">
+            </div>
+
+            <div class="form-group">
+                <label for="currency">Select Currency:</label>
+                <select id="currency">
+                    <option value="">Loading currencies...</option>
+                </select>
+            </div>
+
+            <button id="convert-budget">Convert Budget</button>
+
+            <section id="budget-card" class="budget-card">
+                <div class="budget-icon">💰</div>
+                <h3>Converted Budget</h3>
+                <p id="converted-amount">-</p>
+            </section>
+        </section>
+    </main>
+
+    <footer id="footer"></footer>
+
+    <script src="js/app.mjs" type="module"></script>
+</body>
+</html>
