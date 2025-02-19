@@ -73,7 +73,7 @@ export async function updateBudget() {
 }
 
 /**
- * Display travel news based on user input with staggered animation
+ * Display travel news based on user input with animation
  */
 export async function displayTravelNews() {
     const destination = document.getElementById("destination").value.trim();
@@ -93,14 +93,20 @@ export async function displayTravelNews() {
     }
 
     newsContainer.innerHTML = articles
-        .map(article => `
-            <div class="news-article">
-                <img src="${article.urlToImage || 'assets/images/news-placeholder.jpg'}" alt="News Image" class="news-image">
-                <div class="news-content">
-                    <p><a href="${article.url}" target="_blank">${article.title}</a></p>
+        .map(article => {
+            // Validate image URL
+            let imageUrl = article.image_url || "assets/images/news-placeholder.jpg"; // Use fallback
+
+            return `
+                <div class="news-article">
+                    <img src="${imageUrl}" alt="News Image" class="news-image"
+                         onerror="this.onerror=null;this.src='assets/images/news-placeholder.jpg';">
+                    <div class="news-content">
+                        <p><a href="${article.link}" target="_blank">${article.title}</a></p>
+                    </div>
                 </div>
-            </div>
-        `)
+            `;
+        })
         .join("");
 
     // Trigger animation with staggered effect
