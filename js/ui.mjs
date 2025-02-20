@@ -100,50 +100,33 @@ export async function displayTravelNews() {
 }
 
 export function pinFavoriteBudget() {
-    console.log("pinFavoriteBudget() function is running...");
-
-    const budgetInput = document.getElementById("budget");
-    const currencySelect = document.getElementById("currency");
+    const amount = document.getElementById("budget").value;
+    const currency = document.getElementById("currency").value;
     const convertedAmountElement = document.getElementById("converted-amount");
-
-    if (!budgetInput || !currencySelect || !convertedAmountElement) {
-        console.error("One or more elements not found. Cannot pin budget.");
+    
+    if (!amount || !currency || convertedAmountElement.innerText === "-") {
+        alert("Convert a budget first before saving.");
         return;
     }
 
-    const originalBudget = budgetInput.value; // What the user entered
-    const selectedCurrency = currencySelect.value; // Selected currency
-    const convertedAmountText = convertedAmountElement.innerText; // Converted budget
+    const favoriteData = {
+        originalBudget: amount,
+        convertedAmount: convertedAmountElement.innerText,
+        selectedCurrency: currency
+    };
 
-    if (!originalBudget || !selectedCurrency || !convertedAmountText || convertedAmountText === "-") {
-        alert("Convert a budget first before pinning.");
-        console.error("No valid budget amount to pin.");
-        return;
-    }
+    localStorage.setItem("pinnedBudget", JSON.stringify(favoriteData));
+    console.log("Pinned Budget Saved:", favoriteData);
 
-    console.log("Saving pinned budget:", { originalBudget, selectedCurrency, convertedAmountText });
-
-    // Store the data using consistent keys
-    localStorage.setItem("budget", originalBudget);
-    localStorage.setItem("pinnedBudget", convertedAmountText);
-    localStorage.setItem("currency", selectedCurrency);
-
-    // Update the pinned budget display
     displayPinnedBudget();
 }
-
 
 export function displayPinnedBudget() {
     console.log("displayPinnedBudget() function is running...");
 
-    // Retrieve data from localStorage using correct keys
-    const originalBudget = localStorage.getItem("budget");
-    const convertedAmount = localStorage.getItem("pinnedBudget");
-    const selectedCurrency = localStorage.getItem("currency");
+    const savedBudget = JSON.parse(localStorage.getItem("pinnedBudget"));
+    console.log("Retrieved from localStorage:", savedBudget);
 
-    console.log("Retrieved from localStorage:", { originalBudget, convertedAmount, selectedCurrency });
-
-    // Get UI elements
     const pinnedElement = document.getElementById("pinned-amount");
     const pinnedCard = document.getElementById("favorite-budget-card");
 
@@ -152,24 +135,19 @@ export function displayPinnedBudget() {
         return;
     }
 
-    if (originalBudget && convertedAmount && selectedCurrency) {
-        // Show both the original budget and converted amount
-        pinnedElement.innerHTML = `
-            <strong>Original:</strong> ${originalBudget} USD<br>
-            <strong>Converted:</strong> ${convertedAmount} ${selectedCurrency}
-        `;
-
-        pinnedCard.classList.add("show");
-        pinnedCard.classList.remove("hidden");
+    if (savedBudget) {
+        pinnedElement.innerText = `Saved: ${savedBudget.originalBudget} USD = ${savedBudget.convertedAmount}`;
+        pinnedCard.classList.add("show");  
+        pinnedCard.classList.remove("hidden"); 
         pinnedCard.style.display = "block";
-
         console.log("Pinned budget displayed successfully.");
     } else {
-        pinnedCard.classList.remove("show");
-        pinnedCard.classList.add("hidden");
+        pinnedCard.classList.remove("show");  
+        pinnedCard.classList.add("hidden");   
         pinnedCard.style.display = "none";
         console.log("No pinned budget found, hiding the card.");
     }
+
     
 }
 export function removePinnedBudget() {

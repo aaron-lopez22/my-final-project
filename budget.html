@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget Converter - Smart Trip Planner</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
+    <!-- Dynamic Header -->
     <header id="header"></header>
 
     <main>
@@ -25,26 +26,27 @@
                 </select>
             </div>
 
-            <button id="convert-budget">Convert Budget</button>
-            <button id="pin-favorite">⭐ Pin Favorite</button>
+            <button id="convert-budget"><i class="fas fa-exchange-alt"></i> Convert Budget</button>
+            <button id="save-favorite"><i class="fas fa-star"></i> Save as Favorite</button>
             <p id="favorite-status"></p>
 
             <section id="budget-card" class="budget-card">
-                <div class="budget-icon">💰</div>
+                <div class="budget-icon"><i class="fas fa-coins"></i></div>
                 <h3>Converted Budget</h3>
                 <p id="converted-amount">-</p>
             </section>
             <section id="favorite-budget-card" class="budget-card hidden">
-                <div class="budget-icon">📌</div>
                 <h3>Pinned Budget</h3>
-                <p id="pinned-amount">No pinned budget yet</p>
-                <button id="remove-pinned">❌ Remove Pinned</button>
+                <p id="pinned-amount">-</p>
+                <button id="remove-pinned"><i class="fas fa-trash"></i> Remove</button>
             </section>
-            </section>
-            
+
+            <h3>Pinned Currencies</h3>
+            <div id="pinned-currencies" class="currency-container"></div>
         </section>
     </main>
 
+    <!-- Dynamic Footer -->
     <footer id="footer"></footer>
 
     <script src="js/app.mjs" type="module"></script>

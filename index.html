@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Trip Planner</title>
     <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Dynamic Header -->
+    <header id="header"></header>
 
     <main>
         <section id="trip-form">
@@ -25,13 +29,13 @@
                     <option value="">Loading currencies...</option>
                 </select>
             </div>
-            <button id="plan-trip">Plan My Trip</button>
+            <button id="plan-trip"><i class="fas fa-map-marked-alt"></i> Plan My Trip</button>
         </section>
 
         <section id="trip-results">
             <h2>Trip Details</h2>
             <section id="budget-card" class="budget-card">
-                <div class="budget-icon">💰</div>
+                <div class="budget-icon"><i class="fas fa-wallet"></i></div>
                 <h3>Converted Budget</h3>
                 <p id="converted-amount">-</p>
             </section>
@@ -39,6 +43,9 @@
             <div id="news"></div>
         </section>
     </main>
+
+    <!-- Dynamic Footer -->
+    <footer id="footer"></footer>
 
     <script src="js/app.mjs" type="module"></script>
 </body>
