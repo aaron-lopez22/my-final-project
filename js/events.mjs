@@ -1,4 +1,4 @@
-import { updateBudget, displayTravelNews, pinFavoriteBudget, displayPinnedBudget } from "./ui.mjs";
+import { updateBudget, displayTravelNews, pinFavoriteBudget, removePinnedBudget, displayPinnedBudget } from "./ui.mjs";
 
 export function attachEventListeners() {
     console.log("attachEventListeners() function is running...");
@@ -9,17 +9,22 @@ export function attachEventListeners() {
         });
     }
 
-    // Only attach "Pin Favorite" button if we are on budget.html
+    // Attach event to Pin Favorite button
     const pinButton = document.getElementById("pin-favorite");
     if (pinButton) {
         console.log("Pin Favorite button found. Attaching event listener...");
         pinButton.addEventListener("click", pinFavoriteBudget);
-    } else {
-        console.log("Pin Favorite button not found. Skipping event attachment.");
     }
 
-    // Load pinned budget on page load ONLY on budget.html
-    if (window.location.pathname.includes("budget.html")) {
-        displayPinnedBudget();
+    // Attach event to Remove Pinned Budget button
+    const removeButton = document.getElementById("remove-pinned");
+    if (removeButton) {
+        console.log("Remove Pinned button found. Attaching event listener...");
+        removeButton.addEventListener("click", removePinnedBudget);
+    } else {
+        console.warn("Remove Pinned button not found in the DOM.");
     }
+
+    // Display pinned budget if available
+    displayPinnedBudget();
 }

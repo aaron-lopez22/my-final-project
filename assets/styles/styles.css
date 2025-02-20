@@ -427,9 +427,8 @@ button:hover {
 }
 
 #favorite-budget-card.show {
-    display: block !important; /* Force visibility when .show is added */
+    display: block !important; /* Force visibility when pinned */
 }
-
 #pin-favorite {
     background: gold;
     border: none;
@@ -443,4 +442,9 @@ button:hover {
 
 #pin-favorite:hover {
     background: darkgoldenrod;
+}
+#pinned-amount {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.5; /* Ensure better spacing */
 }
